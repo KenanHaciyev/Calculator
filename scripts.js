@@ -1,20 +1,23 @@
-let calc = '';
+import { validation, resultValidation } from './modules/validation.js';
+let calcValue = '';
 let display = document.querySelector('.display');
-const operations = ['+', '-', '*', '/'];
 
 document.querySelectorAll('.calc__btn').forEach(btn => {
 	btn.addEventListener('click', e => {
-		calc += e.currentTarget.textContent;
-		display.value = calc;
+		calcValue = validation((calcValue += e.currentTarget.textContent));
+		display.value = calcValue;
 	});
 });
 
 document.querySelector('.calc__result').addEventListener('click', () => {
-	calc = parseFloat(eval(calc).toFixed(6));
-	display.value = calc;
+	if (calcValue.toString().trim() && calcValue.length > 1) {
+		calcValue = resultValidation(calcValue);
+		calcValue = parseFloat(eval(calcValue).toFixed(6));
+		display.value = calcValue;
+	}
 });
 
 document.querySelector('.calc__clear').addEventListener('click', () => {
-	calc = '';
-	display.value = calc;
+	calcValue = '';
+	display.value = calcValue;
 });
