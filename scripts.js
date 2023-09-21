@@ -1,23 +1,32 @@
 import { validation, resultValidation } from './modules/validation.js';
-let calcValue = '';
+const calcBtns = document.querySelectorAll('.calc__btn');
+const totalResult = document.querySelector('.calc__resultBtn');
+const clearBtn = document.querySelector('.calc__clearBtn');
 let display = document.querySelector('.display');
+let calcValue = '';
 
-document.querySelectorAll('.calc__btn').forEach(btn => {
-	btn.addEventListener('click', e => {
-		calcValue = validation((calcValue += e.currentTarget.textContent));
-		display.value = calcValue;
-	});
-});
+const handleEnterValues = e => {
+	calcValue = validation((calcValue += e.currentTarget.textContent));
+	display.value = calcValue;
+};
 
-document.querySelector('.calc__result').addEventListener('click', () => {
+const handleCalculateResult = () => {
 	if (calcValue.toString().trim() && calcValue.length > 1) {
 		calcValue = resultValidation(calcValue);
 		calcValue = parseFloat(eval(calcValue).toFixed(6));
 		display.value = calcValue;
 	}
-});
+};
 
-document.querySelector('.calc__clear').addEventListener('click', () => {
+const handleClear = () => {
 	calcValue = '';
 	display.value = calcValue;
+};
+
+calcBtns.forEach(btn => {
+	btn.addEventListener('click', handleEnterValues);
 });
+
+totalResult.addEventListener('click', handleCalculateResult);
+
+clearBtn.addEventListener('click', handleClear);

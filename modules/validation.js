@@ -1,4 +1,5 @@
 const operations = ['+', '-', '*', '/', '.'];
+
 export const validation = value => {
 	const valueArray = value.split('');
 

@@ -7,25 +7,37 @@
 		<title>Calculator</title>
 	</head>
 	<body>
-		<main>
-			<input type="text" class="display" readonly="true" placeholder="0" />
-			<button class="calc__btn">1</button>
-			<button class="calc__btn">2</button>
-			<button class="calc__btn">3</button>
-			<button class="calc__btn">4</button>
-			<button class="calc__btn">5</button>
-			<button class="calc__btn">6</button>
-			<button class="calc__btn">7</button>
-			<button class="calc__btn">8</button>
-			<button class="calc__btn">9</button>
-			<button class="calc__btn">0</button>
-			<button class="calc__btn">.</button>
-			<button class="calc__btn">-</button>
-			<button class="calc__btn">+</button>
-			<button class="calc__btn">*</button>
-			<button class="calc__btn">/</button>
-			<button class="calc__result">=</button>
-			<button class="calc__clear">C</button>
+		<main class="content">
+			<section class="calc">
+				<input type="text" class="display" readonly="true" placeholder="0" />
+				<div class="calc__buttons">
+					<div class="calc__firstLine">
+						<button class="calc__btn">1</button>
+						<button class="calc__btn">2</button>
+						<button class="calc__btn">3</button>
+						<button class="calc__btn">+</button>
+					</div>
+					<div class="calc__secondLine">
+						<button class="calc__btn">4</button>
+						<button class="calc__btn">5</button>
+						<button class="calc__btn">6</button>
+						<button class="calc__btn">-</button>
+					</div>
+					<div class="calc__thirdLine">
+						<button class="calc__btn">7</button>
+						<button class="calc__btn">8</button>
+						<button class="calc__btn">9</button>
+						<button class="calc__btn">*</button>
+					</div>
+					<div class="calc__lastLine">
+						<button class="calc__btn">.</button>
+						<button class="calc__btn">0</button>
+						<button class="calc__resultBtn">=</button>
+						<button class="calc__btn">/</button>
+					</div>
+					<button class="calc__clearBtn">C</button>
+				</div>
+			</section>
 		</main>
 		<script type="module" src="./scripts.js"></script>
 	</body>
